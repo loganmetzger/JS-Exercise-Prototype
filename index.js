@@ -76,6 +76,12 @@ personOne.eat('Pad Thai');
 personOne.eat('Sushi');
 personOne.eat('Butter Chicken');
 
+console.log(personOne.stomach);
+
+personOne.poop();
+
+console.log(personOne.stomach);
+
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
