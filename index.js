@@ -124,18 +124,28 @@ Car.prototype.drive = function(distance) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
 
+  this.favoriteToy = favoriteToy;
 }
+
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`
+}
+
+const babyOne = new Baby('Boo', 1, 'Rattle');
+
+// const babyOne = new Baby('pooper', 1, 'Rattle');
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/Global - When this is called without being nested inside an object, it has no reference or context to pull from. The only context it can choose is from the window aka JS itself.
+  2. Implicit - The most common use case of this. When this is referenced inside an object, using this refers back to the object itself. The common dogma here is to the left of the dot is what you are refering to
+  3. Explicit - when using the call/apply methods, you are explicitly saying that you want to refer to something in particular when saying this. You must designate what you are refering to here inside the brackets after call/apply
+  4. New - Using this with new refers back to the original constructor function. Basically you tell this from the constructor function to use the assignment that you are gtiving it with new
 */
 
 
