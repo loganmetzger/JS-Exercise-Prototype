@@ -110,9 +110,13 @@ Car.prototype.fill = function(gallons) {
 Car.prototype.drive = function(distance) {
   this.odometer += distance;
   this.tank -= (distance / this.milesPerGallon);
-  if (this.tank = 0) {
+
+
+  if (this.milesPerGallon * distance = 0) {
     return `I ran out of fuel at ${this.odometer}!`
   }
+
+  
 }
 
 
@@ -128,7 +132,11 @@ function Baby(name, age, favoriteToy) {
   Person.call(this, name, age);
 
   this.favoriteToy = favoriteToy;
+
+  // Object.create(Person.prototype);
 }
+
+Baby.prototype = Object.create(Person.prototype);
 
 Baby.prototype.play = function() {
   return `Playing with ${this.favoriteToy}`
