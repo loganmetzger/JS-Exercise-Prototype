@@ -39,9 +39,42 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+// constructor function creation
+// Takes name, age, and stomach as Property
 
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+
+//Creat an eat method that gives person the ability to eat edible things (up to 10)
+//If stomach length < 10, person can eat, if > 10, person cannot eat
+//push edible thing to stomach array
+
+Person.prototype.eat = function(edible) {
+  if(this.stomach.length < 10) {
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.poop = function() {
+  this.stomach = [];
+}
+
+Person.prototype.toString = function() {
+  return `${this.name}, ${this.age}`;
+}
+
+//Creat object
+
+const personOne = new Person('Logan', 27);
+const personTwo = new Person ('Sam', 27);
+
+console.log(personOne.toString());
+personOne.eat('Pad Thai');
+personOne.eat('Sushi');
+personOne.eat('Butter Chicken');
 
 /*
   TASK 2
